@@ -1,0 +1,130 @@
+:root {
+    --normal: #B3B289;
+    --grass: #2BDAB1;
+    --fire: #EF7E30;
+    --water: #58ABF7;
+    --bug: #A8B821;
+    --poison: #9F439D;
+    --fighting: #C0312A;
+    --electric: #FFEA04;
+    --ice: #97D7D7;
+    --rock: #B79E39;
+    --ground: #DFBF69;
+    --flying: #A890EF;
+    --dark: #6F5949;
+    --psychic: #F75887;
+    --ghost: #715898;
+    --fairy: #E39CEA;
+    --steel: #CECECE;
+    --dragon: #7038F7;
+}
+
+.normal-bg {
+    background-color: var(--normal);
+}
+.grass-bg {
+    background-color: var(--grass);
+}
+.fire-bg {
+    background-color: var(--fire);
+}
+.water-bg {
+    background-color: var(--water);
+}
+.bug-bg {
+    background-color: var(--bug);
+}
+.poison-bg {
+    background-color: var(--poison);
+}
+.fightting-bg {
+    background-color: var(--fightting);
+}
+.electric-bg {
+    background-color: var(--electric);
+}
+.ice-bg {
+    background-color: var(--ice);
+}
+.rock-bg {
+    background-color: var(--rock);
+}
+.ground-bg {
+    background-color: var(--ground);
+}
+.flying-bg {
+    background-color: var(--flying);
+}
+.dark-bg {
+    background-color: var(--dark);
+}
+.psychic-bg {
+    background-color: var(--psychic);
+}
+.ghost-bg {
+    background-color: var(--ghost);
+}
+.fairy-bg {
+    background-color: var(--fairy);
+}
+.steel-bg {
+    background-color: var(--steel);
+}
+.dragon-bg {
+    background-color: var(--dragon);
+}
+
+.normal-text {
+    color: var(--normal);
+}
+.grass-text {
+    color: var(--grass);
+}
+.fire-text {
+    color: var(--fire);
+}
+.water-text {
+    color: var(--water);
+}
+.bug-text {
+    color: var(--bug);
+}
+.poison-text {
+    color: var(--poison);
+}
+.fighting-text {
+    color: var(--fighting);
+}
+.electric-text {
+    color: var(--electric);
+}
+.ice-text {
+    color: var(--ice);
+}
+.rock-text {
+    color: var(--rock);
+}
+.ground-text {
+    color: var(--ground);
+}
+.flying-text {
+    color: var(--flying);
+}
+.dark-text {
+    color: var(--dark);
+}
+.psychic-text {
+    color: var(--psychic);
+}
+.ghost-text {
+    color: var(--ghost);
+}
+.fairy-text {
+    color: var(--fairy);
+}
+.steel-text {
+    color: var(--steel);
+}
+.dragon-text {
+    color: var(--dragon);
+}
