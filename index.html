@@ -5,75 +5,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/interface/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/interface/logoicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
     <title>POKEDEX</title>
 </head>
 
 <body>
-    <header>
+
+    <header class="container">
         <div class="logo">
             <div class="logo-img"><img src="img/interface/logoicon.svg" alt="pokedex"></div>
             <h1 class="title">POKEDEX</h1>
         </div>
-    </header>
-    <section class="search-filter-container">
         <div class="search-button">
             <img src="img/interface/search.svg" alt="search">
         </div>
         <!-- SEARCH BAR -->
         <div class="search-bar">
-            <input type="text" name="search-input" id="search-input" placeholder="find a pokémon">
+            <input type="text" name="search-input" id="search-input" class="search-input" placeholder="find a pokémon">
             <div class="close-button">
                 <img src="img/interface/close-search.svg" alt="close search">
             </div>
         </div>
-        <!-- FILTER SELECT -->
-        <select name="types" id="pokemon-types-select">
-            <option value="normal">normal</option>
-            <option value="grass">grass</option>
-            <option value="fire">fire</option>
-            <option value="water">water</option>
-            <option value="bug">bug</option>
-            <option value="poison">poison</option>
-            <option value="fighting">fighting</option>
-            <option value="electric">electric</option>
-            <option value="ice">ice</option>
-            <option value="rock">rock</option>
-            <option value="ground">ground</option>
-            <option value="flying">flying</option>
-            <option value="dark">dark</option>
-            <option value="psychic">psychic</option>
-            <option value="ghost">ghost</option>
-            <option value="fairy">fairy</option>
-            <option value="steel">steel</option>
-            <option value="dragon">dragon</option>
-        </select>
+
+        <label class="select-label">
+            <select name="types" id="pokemon-types-select" class="pokemon-types-select">
+                <option value="" disabled selected>Select a type</option>
+                <option value="normal">normal</option>
+                <option value="grass">grass</option>
+                <option value="fire">fire</option>
+                <option value="water">water</option>
+                <option value="bug">bug</option>
+                <option value="poison">poison</option>
+                <option value="fighting">fighting</option>
+                <option value="electric">electric</option>
+                <option value="ice">ice</option>
+                <option value="rock">rock</option>
+                <option value="ground">ground</option>
+                <option value="flying">flying</option>
+                <option value="dark">dark</option>
+                <option value="psychic">psychic</option>
+                <option value="ghost">ghost</option>
+                <option value="fairy">fairy</option>
+                <option value="steel">steel</option>
+                <option value="dragon">dragon</option>
+            </select>
+        </label>
+    </header>
+
+    <section class="filter-container container">
+        
+        <!-- FILTER BUTTONS -->
         <div class="type-buttons-container">
-            <button class="type-button">normal</button>
-            <button class="type-button">grass</button>
-            <button class="type-button">fire</button>
-            <button class="type-button">water</button>
-            <button class="type-button">bug</button>
-            <button class="type-button">poison</button>
-            <button class="type-button">fighting</button>
-            <button class="type-button">electric</button>
-            <button class="type-button">ice</button>
-            <button class="type-button">rock</button>
-            <button class="type-button">ground</button>
-            <button class="type-button">flying</button>
-            <button class="type-button">dark</button>
-            <button class="type-button">psychic</button>
-            <button class="type-button">ghost</button>
-            <button class="type-button">fairy</button>
-            <button class="type-button">steel</button>
-            <button class="type-button">dragon</button>
+            <button class="type-button normal-bg">normal</button>
+            <button class="type-button grass-bg">grass</button>
+            <button class="type-button fire-bg">fire</button>
+            <button class="type-button water-bg">water</button>
+            <button class="type-button bug-bg">bug</button>
+            <button class="type-button poison-bg">poison</button>
+            <button class="type-button grass-bg">fighting</button>
+            <button class="type-button fighting-bg">electric</button>
+            <button class="type-button ice-bg">ice</button>
+            <button class="type-button rock-bg">rock</button>
+            <button class="type-button ground-bg">ground</button>
+            <button class="type-button flying-bg">flying</button>
+            <button class="type-button dark-bg">dark</button>
+            <button class="type-button psychic-bg">psychic</button>
+            <button class="type-button ghost-bg">ghost</button>
+            <button class="type-button fairy-bg">fairy</button>
+            <button class="type-button steel-bg">steel</button>
+            <button class="type-button dragon-bg">dragon</button>
         </div>
     </section>
-    <main class="pokemons-container">
+    <main class="pokemons-container container">
 
         <!-- START POKEMON PLACEHOLDER -->
-        <div class="pokemon">
+        <div class="pokemon electric-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/pikachu.gif" alt="pikachu">
             </div>
@@ -81,42 +88,44 @@
             <p class="pokemon-name">PIKACHU</p>
         </div>
 
-        <div class="pokemon">
+        <div class="pokemon grass-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/bulbasaur.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fire-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/charmander.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon water-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/squirtle.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fighting-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/mankey.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon rock-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/geodude.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+
+
+        <div class="pokemon electric-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/pikachu.gif" alt="pikachu">
             </div>
@@ -124,42 +133,41 @@
             <p class="pokemon-name">PIKACHU</p>
         </div>
 
-        <div class="pokemon">
+        <div class="pokemon grass-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/bulbasaur.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fire-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/charmander.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon water-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/squirtle.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fighting-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/mankey.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon rock-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/geodude.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
-        </div>
-        <div class="pokemon">
+        </div><div class="pokemon electric-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/pikachu.gif" alt="pikachu">
             </div>
@@ -167,42 +175,41 @@
             <p class="pokemon-name">PIKACHU</p>
         </div>
 
-        <div class="pokemon">
+        <div class="pokemon grass-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/bulbasaur.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fire-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/charmander.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon water-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/squirtle.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fighting-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/mankey.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon rock-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/geodude.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
-        </div>
-        <div class="pokemon">
+        </div><div class="pokemon electric-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/pikachu.gif" alt="pikachu">
             </div>
@@ -210,42 +217,41 @@
             <p class="pokemon-name">PIKACHU</p>
         </div>
 
-        <div class="pokemon">
+        <div class="pokemon grass-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/bulbasaur.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fire-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/charmander.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon water-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/squirtle.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fighting-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/mankey.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon rock-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/geodude.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
-        </div>
-        <div class="pokemon">
+        </div><div class="pokemon electric-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/pikachu.gif" alt="pikachu">
             </div>
@@ -253,42 +259,41 @@
             <p class="pokemon-name">PIKACHU</p>
         </div>
 
-        <div class="pokemon">
+        <div class="pokemon grass-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/bulbasaur.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fire-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/charmander.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon water-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/squirtle.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fighting-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/mankey.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon rock-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/geodude.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
-        </div>
-        <div class="pokemon">
+        </div><div class="pokemon electric-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/pikachu.gif" alt="pikachu">
             </div>
@@ -296,42 +301,41 @@
             <p class="pokemon-name">PIKACHU</p>
         </div>
 
-        <div class="pokemon">
+        <div class="pokemon grass-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/bulbasaur.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fire-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/charmander.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon water-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/squirtle.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fighting-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/mankey.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon rock-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/geodude.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
-        </div>
-        <div class="pokemon">
+        </div><div class="pokemon electric-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/pikachu.gif" alt="pikachu">
             </div>
@@ -339,45 +343,46 @@
             <p class="pokemon-name">PIKACHU</p>
         </div>
 
-        <div class="pokemon">
+        <div class="pokemon grass-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/bulbasaur.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fire-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/charmander.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon water-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/squirtle.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon fighting-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/mankey.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
-        <div class="pokemon">
+        <div class="pokemon rock-bg">
             <div class="pokemon-img">
                 <img src="img/pokemon/gif/geodude.gif" alt="pikachu">
             </div>
             <p class="pokemon-id">025</p>
             <p class="pokemon-name">PIKACHU</p>
         </div>
+
 
         <!-- START POKEMON PLACEHOLDER -->
     </main>
-    <footer>
+    <footer class="container">
         <p>pokémon :: 1ª generation :: kanto</p>
     </footer>
 </body>

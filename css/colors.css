@@ -1,4 +1,6 @@
 :root {
+    --interface: #f00530;
+
     --normal: #B3B289;
     --grass: #2BDAB1;
     --fire: #EF7E30;
@@ -37,8 +39,8 @@
 .poison-bg {
     background-color: var(--poison);
 }
-.fightting-bg {
-    background-color: var(--fightting);
+.fighting-bg {
+    background-color: var(--fighting);
 }
 .electric-bg {
     background-color: var(--electric);
