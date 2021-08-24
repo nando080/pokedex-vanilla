@@ -119,6 +119,8 @@ header {
     font-family: fzero, Arial, Helvetica, sans-serif;
     font-size: .8rem;
     border: none;
+    text-shadow: .35px .35px 6px rgba(66, 66, 66, 0.5);
+    color: white;
     border-radius: 5px;
     height: 30px;
     cursor:pointer;
@@ -178,6 +180,17 @@ footer {
     border-top: 3px solid var(--interface);
     position: fixed;
     bottom: 0;
+}
+
+/* MODAL */
+
+section.modal {
+    width: 100vw;
+    height: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
 }
 
 @media (max-width: 970px) {
@@ -244,8 +257,8 @@ footer {
         font-size: .85rem;
         margin-top: 14px;
         appearance: none;
+        color: #A0A0A0;
     }
-
 
     .pokemon-types-select:hover, .pokemon-types-select:active {
         box-shadow: 0px 0px 6px rgba(240, 5, 48, .35);
@@ -268,5 +281,33 @@ footer {
 
     .pokemon-types-select {
         font-size: .7rem;
+    }
+}
+
+@media(max-width: 590px) {
+    header {
+        flex-direction: column;
+    }
+
+    .logo {
+        display: block;
+        text-align: center;
+    }
+
+    .search-button {
+        top: 0;
+    }
+
+    .search-bar {
+        width: 100%;
+        padding: 7px 15px;
+    }
+
+    .select-label {
+        width: 100%;
+    }
+
+    .pokemons-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
