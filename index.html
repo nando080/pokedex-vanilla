@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/interface/logoicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
     <title>POKEDEX</title>
 </head>
 
@@ -391,27 +392,94 @@
         <p>pokémon :: 1ª generation :: kanto</p>
     </footer>
 
+    <!-- POKEMON MODAL -->
     <section class="modal grass-bg">
         <div class="modal-close-button">x</div>
         <div class="modal-container">
-            <div class="pokemon-id">
-                <div class="pokemon-id-img">
-                    <img src="img/interface/pokeball-gray.svg" alt="pokemon id">
+            <div class="info-container">
+                <div class="pokemon-id">
+                    <div class="pokemon-id-img">
+                        <img src="img/interface/pokeball-gray.svg" alt="pokemon id">
+                    </div>
+                    <p>003</p>
                 </div>
-                <p>003</p>
-            </div>
-            <h1 class="pokemon-modal-name">VENOSAUR</h1>
-            <div class="pokemon-modal-types">
-                <div class="type1">
-                    <img src="img/pokemon/badges/grass.svg" alt="grass">
+                <h1 class="pokemon-modal-name">VENOSAUR</h1>
+                <div class="pokemon-modal-types">
+                    <div class="type1">
+                        <img src="img/pokemon/badges/grass.svg" alt="grass">
+                    </div>
+                    <div class="type2">
+                        <img src="img/pokemon/badges/poison.svg" alt="grass">
+                    </div>
                 </div>
-                <div class="type2">
-                    <img src="img/pokemon/badges/poison.svg" alt="grass">
-                </div>
-            </div>
-            <div class="pokemon-info-container">
                 <div class="pokemon-modal-img">
                     <img src="img/pokemon/png/003.png" alt="venossaur">
+                </div>
+                <div class="pokemon-measures">
+                    <div class="pokemon-weight-container">
+                        <img src="img/interface/weight.svg" alt="pokemon weight">
+                        <p class="pokemon-weight">100.0kg</p>
+                    </div>
+                    <div class="pokemon-size-container">
+                        <img src="img/interface/size.svg" alt="pokemon weight">
+                        <p class="pokemon-size">2.01m</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-container">
+                <div class="weaknesses">
+                    <h2>WEAKNESSES</h2>
+                    <div class="weaknesses-badges">
+                        <div class="element-badge">
+                            <img src="img/pokemon/badges/fire.svg" alt="fire">
+                        </div>
+                        <div class="element-badge">
+                            <img src="img/pokemon/badges/ice.svg" alt="fire">
+                        </div>
+                        <div class="element-badge">
+                            <img src="img/pokemon/badges/flying.svg" alt="fire">
+                        </div>
+                        <div class="element-badge">
+                            <img src="img/pokemon/badges/psychic.svg" alt="fire">
+                        </div>
+                    </div>
+
+                    <div class="status-chart">
+                        <div class="bar-container">
+                            <div class="bar grass-bg">
+                                <h3 class="bar-name">HP</h3>
+                            </div>
+                            <div class="bar grass-bg">
+                                <h3 class="bar-name">ATK</h3>
+                            </div>
+                            <div class="bar grass-bg">
+                                <h3 class="bar-name">DEF</h3>
+                            </div>
+                            <div class="bar grass-bg">
+                                <h3 class="bar-name">SPATK</h3>
+                            </div>
+                            <div class="bar grass-bg">
+                                <h3 class="bar-name">SPDEF</h3>
+                            </div>
+                            <div class="bar grass-bg">
+                                <h3 class="bar-name">SPEED</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="evolutions-container">
+                        <h2>EVOLUTIONS</h2>
+                        <div class="evolution">
+                            <img src="img/pokemon/gif/bulbasaur.gif" alt="">
+                        </div>
+                        <div class="evolution">
+                            <img src="img/pokemon/gif/ivysaur.gif" alt="">
+                        </div>
+                        <div class="evolution">
+                            <img src="img/pokemon/gif/venusaur.gif" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
