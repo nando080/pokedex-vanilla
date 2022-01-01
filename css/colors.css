@@ -1,0 +1,164 @@
+:root {
+    --normal: #A7A676;
+    --grass: #2CDAB1;
+    --fire: #EE7D2F;
+    --water: #678DEE;
+    --bug: #A8B821;
+    --poison: #9D429B;
+    --fighting: #BE3028;
+    --electric: #FEE900;
+    --ice: #96D6D6;
+    --rock: #B69D38;
+    --ground: #DEBE68;
+    --flying: #A68DEE;
+    --dark: #6E5848;
+    --psychic: #F65785;
+    --ghost: #705797;
+    --fairy: #E29BE9;
+    --steel: #CDCDCD;
+    --dragon: #6F37F6;
+}
+
+.u-normal-bg {
+    background-color: var(--normal);
+}
+
+.u-normal-text {
+    color: var(--normal);
+}
+
+.u-grass-bg {
+    background-color: var(--grass);
+}
+
+.u-grass-text {
+    color: var(--grass);
+}
+
+.u-fire-bg {
+    background-color: var(--fire);
+}
+
+.u-fire-text {
+    color: var(--fire);
+}
+
+.u-water-bg {
+    background-color: var(--water);
+}
+
+.u-water-text {
+    color: var(--water);
+}
+
+.u-bug-bg {
+    background-color: var(--bug);
+}
+
+.u-bug-text {
+    color: var(--bug);
+}
+
+.u-poison-bg {
+    background-color: var(--poison);
+}
+
+.u-poison-text {
+    color: var(--poison);
+}
+
+.u-fighting-bg {
+    background-color: var(--fighting);
+}
+
+.u-fighting-text {
+    color: var(--fighting);
+}
+
+.u-electric-bg {
+    background-color: var(--electric);
+}
+
+.u-electric-text {
+    color: var(--electric);
+}
+
+.u-ice-bg {
+    background-color: var(--ice);
+}
+
+.u-ice-text {
+    color: var(--ice);
+}
+
+.u-rock-bg {
+    background-color: var(--rock);
+}
+
+.u-rock-text {
+    color: var(--rock);
+}
+
+.u-ground-bg {
+    background-color: var(--ground);
+}
+
+.u-ground-text {
+    color: var(--ground);
+}
+
+.u-flying-bg {
+    background-color: var(--flying);
+}
+
+.u-flying-text {
+    color: var(--flying);
+}
+
+.u-dark-bg {
+    background-color: var(--dark);
+}
+
+.u-dark-text {
+    color: var(--dark);
+}
+
+.u-psychic-bg {
+    background-color: var(--psychic);
+}
+
+.u-psychic-text {
+    color: var(--psychic);
+}
+
+.u-ghost-bg {
+    background-color: var(--ghost);
+}
+
+.u-ghost-text {
+    color: var(--ghost);
+}
+
+.u-fairy-bg {
+    background-color: var(--fairy);
+}
+
+.u-fairy-text {
+    color: var(--fairy);
+}
+
+.u-steel-bg {
+    background-color: var(--steel);
+}
+
+.u-steel-text {
+    color: var(--steel);
+}
+
+.u-dragon-bg {
+    background-color: var(--dragon);
+}
+
+.u-dragon-text {
+    color: var(--dragon);
+}
