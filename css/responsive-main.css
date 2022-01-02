@@ -1,0 +1,19 @@
+@media(max-width: 320px) {
+
+    .header {
+        justify-content: center;
+    }
+
+    .header__logo {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header__search-button {
+        position: absolute;
+        right: 1.5rem;
+        top: 0;
+    }
+
+}

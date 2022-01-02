@@ -2,3 +2,61 @@
     font-family: fzero;
     src: url(../font/F-ZeroGBAText1.ttf);
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: fzero;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+.u-container {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+}
+
+
+/* HEADER */
+
+.header {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    position: relative;
+}
+
+.header__logo {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.header__search-button {
+    width: 2.7rem;
+    height: 2.7rem;
+    border: none;
+    cursor: pointer;
+    background-image: url(../img/interface/search.svg);
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all ease .5s;
+}
+
+.header__search-button:hover {
+    transform: rotate(180deg)
+}
+
+.header__search-button.is-active {
+    background-image: url(../img/interface/close-search.svg)
+}
