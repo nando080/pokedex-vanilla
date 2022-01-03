@@ -60,3 +60,30 @@
 .header__search-button.is-active {
     background-image: url(../img/interface/close-search.svg)
 }
+
+
+/* FILTER */
+
+.filter {
+    background-color: pink;
+    padding: 1.5rem;
+}
+
+.filter__input {
+    width: 100%;
+    border:none;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: .9rem;
+    margin-bottom: 1.5rem;
+    background-color: #f2f2f2;
+    color: var(--interface);
+}
+
+.filter__input::placeholder {
+    color: a0a0a0;
+}
+
+.filter__button-container {
+    display: grid;
+}
