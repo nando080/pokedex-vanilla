@@ -31,7 +31,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1.5rem;
+    padding: 1.5rem;
     position: relative;
     z-index: 100;
 }
@@ -68,6 +68,12 @@
 .filter {
     background-color: pink;
     padding: 1.5rem;
+    margin-top: -150px;
+    transition: ease .3s;
+}
+
+.filter.is-active {
+    margin-top: 0;
 }
 
 .filter__input {
@@ -87,7 +93,7 @@
 
 .filter__button-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: .75rem;
 }
 
@@ -114,6 +120,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 1.5rem;
+    margin-top: 1.5rem;
     color: #fff;
 }
 
