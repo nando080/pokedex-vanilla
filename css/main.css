@@ -66,10 +66,7 @@
 
 /* FILTER */
 
-/* TODO - FIX FILTER TRANSITION */
-
 .filter {
-    background-color: pink;
     transition-duration: .5s;
     transform-origin: top center;
     height: 0;
