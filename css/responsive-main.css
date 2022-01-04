@@ -1,27 +1,3 @@
-@media(max-width: 1237px) {
-    .filter {
-        margin-top: -215px;
-    }
-}
-
-@media(max-width: 646px) {
-    .filter {
-        margin-top: -284px;
-    }
-}
-
-@media(max-width: 444px) {
-    .filter {
-        margin-top: -354px;
-    }
-}
-
-@media(max-width: 359px) {
-    .filter {
-        margin-top: -415px;
-    }
-}
-
 @media(max-width: 320px) {
 
     .header {

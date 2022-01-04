@@ -10,6 +10,7 @@
     font-family: fzero;
     text-decoration: none;
     list-style: none;
+    transition: all ease;
 }
 
 :root {
@@ -51,7 +52,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: all ease .5s;
+    transition-duration: .5s;
 }
 
 .header__search-button:hover {
@@ -65,15 +66,23 @@
 
 /* FILTER */
 
+/* TODO - FIX FILTER TRANSITION */
+
 .filter {
     background-color: pink;
-    padding: 1.5rem;
-    margin-top: -150px;
-    transition: ease .3s;
+    transition-duration: .5s;
+    transform-origin: top center;
+    height: 0;
 }
 
-.filter.is-active {
-    margin-top: 0;
+.filter__container {
+    transform: translateY(calc(-100% - 3rem));
+    padding: 1.5rem 0;
+    transition-duration: .5s;
+}
+
+.filter__container.is-active {
+    transform: translateY(0);
 }
 
 .filter__input {
@@ -109,7 +118,7 @@
 
 .filter__button:hover {
     transform: scale(.95);
-    transition: all ease .3s;
+    transition-duration: .3s;
     filter: brightness(1.1);
 }
 
@@ -132,7 +141,7 @@
     align-items: center;
     border-radius: .5rem;
     cursor: pointer;
-    transition: ease .3s;
+    transition-duration: .3s;
 }
 
 .pokemon__item:hover {
