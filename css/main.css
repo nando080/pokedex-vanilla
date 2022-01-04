@@ -126,7 +126,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 1.5rem;
-    margin-top: 1.5rem;
+    margin-top:1.5rem;
+    margin-bottom:1.5rem;
     color: #fff;
 }
 
@@ -162,4 +163,16 @@
 .pokemon__name {
     font-size: .8rem;
     font-weight: normal;
+}
+
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 2px solid var(--interface);
+}
+
+.footer__info {
+    color: var(--interface);
 }
