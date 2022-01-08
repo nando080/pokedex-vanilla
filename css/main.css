@@ -149,6 +149,8 @@
 
 .pokemon__img {
     margin-bottom: 1rem;
+    max-width: 200px;
+    max-height: 100px;
 }
 
 .pokemon__id,

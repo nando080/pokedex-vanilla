@@ -11,7 +11,6 @@ const getFilterContanerHeight = () => filterContainerEl.getBoundingClientRect().
 
 const setFilterActivation = () => {
     const isFilterContainerActive = filterContainerEl.classList.contains('is-active')
-    console.log(isFilterContainerActive)
     if (!isFilterActive && !isFilterContainerActive) {
         filterSectionEl.style.height = `${getFilterContanerHeight()}px`
         filterContainerEl.classList.add('is-active')
@@ -36,13 +35,15 @@ const getFormatedID = value => {
     return value
 }
 
+const formatPokemonName = name => name.replace(/♀/g, '_f').replace(/♂/g, '_m').replace(/['.\s]/g, '').toLowerCase()
+
+
 const createPokemonElement = ({id, name, type}) => {
     const pokeDiv = document.createElement('div')
     pokeDiv.classList.add('pokemon__item')
     pokeDiv.classList.add(`u-${type[0]}-bg`)
-    console.log(name)
     pokeDiv.innerHTML = `
-    <img src="img/pokemon-gif/${name.toLowerCase()}.gif" alt="${name}" class="pokemon__img">
+    <img src="img/pokemon-gif/${formatPokemonName(name)}.gif" alt="${name}" class="pokemon__img">
     <p class="pokemon__id">${getFormatedID(id)}</p>
     <h2 class="pokemon__name">${name.toUpperCase()}</h2>
     `
@@ -74,7 +75,6 @@ const fetchPokemons = async () => {
     const pokelist = await data.json()
     fillPokemonsList(pokelist)
     insertPokemonsIntoDOM(createAllPokemons(pokelist))
-    console.log(pokemons);
 }
 
 searchButtonEl.addEventListener('click', () => {
@@ -83,6 +83,7 @@ searchButtonEl.addEventListener('click', () => {
 })
 
 window.addEventListener('resize', () => {
+    isFilterActive = true
     setFilterActivation()
 })
 
