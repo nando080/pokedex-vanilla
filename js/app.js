@@ -42,10 +42,11 @@ const createPokemonElement = ({id, name, type}) => {
     const pokeDiv = document.createElement('div')
     pokeDiv.classList.add('pokemon__item')
     pokeDiv.classList.add(`u-${type[0]}-bg`)
+    pokeDiv.dataset.id = id
     pokeDiv.innerHTML = `
-    <img src="img/pokemon-gif/${formatPokemonName(name)}.gif" alt="${name}" class="pokemon__img">
-    <p class="pokemon__id">${getFormatedID(id)}</p>
-    <h2 class="pokemon__name">${name.toUpperCase()}</h2>
+    <img src="img/pokemon-gif/${formatPokemonName(name)}.gif" alt="${name}" class="pokemon__img" data-id="${id}">
+    <p class="pokemon__id" data-id="${id}">${getFormatedID(id)}</p>
+    <h2 class="pokemon__name" data-id="${id}">${name.toUpperCase()}</h2>
     `
     return pokeDiv
 }
@@ -85,6 +86,10 @@ searchButtonEl.addEventListener('click', () => {
 window.addEventListener('resize', () => {
     isFilterActive = true
     setFilterActivation()
+})
+
+pokemonsContainerEl.addEventListener('click', event => {
+    console.log(event.target.dataset.id)
 })
 
 fetchPokemons()
