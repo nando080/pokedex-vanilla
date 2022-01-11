@@ -14,7 +14,96 @@
 }
 
 .modal__container {
-    width: 800px;
-    height: 600px;
+    width: 90%;
+    height: 100%;
+    max-height: 800px;
+    max-width: 1070px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 1.5rem;
     background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+}
+
+.modal__close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.modal__info-container {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal__id {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.modal__id-icon {
+    max-height: 50px;
+}
+
+.modal__id-number {
+    font-size: 3rem;
+    font-weight: normal;
+    color: #d0d0d0;
+}
+
+.modal__img {
+    max-width: 90%;
+}
+
+.modal__name {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal__type-container {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.modal__type-container {
+    margin-bottom: 3rem;
+}
+
+.modal__type {
+    height: 5.5rem;
+}
+
+.modal__measure-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 3rem;
+}
+
+.modal__measure {
+    text-align: center;
+}
+
+.modal__measure-icon {
+    height: 4rem;
+    margin: .5rem;
+}
+
+.modal__measure-value {
+    font-size: 1.3rem;
+    color: #d0d0d0;
+}
+
+.modal__stats-container {
+    background-color: pink;
+    width: 55%;
+    height: 100%;
 }
