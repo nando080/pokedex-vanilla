@@ -155,7 +155,7 @@
 }
 
 .modal__stats-chart-bar {
-    width: 100%;
+    width: 0;
     height: 100%;
     position: absolute;
     left: 0;
