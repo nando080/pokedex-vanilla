@@ -211,6 +211,10 @@
         height: fit-content;
         padding: 1.5rem;
         margin-bottom: 3rem;
+        margin-top: 6rem;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        justify-items: center;
     }
 
     .modal__info-container > * {
@@ -218,7 +222,16 @@
     }
 
     .modal__img {
-        max-width: 380px;
+        grid-column: 1;
+        grid-row: 1 / span 4;
+        width: 100%;
+    }
+
+    .modal__id,
+    .modal__name,
+    .modal__type-container,
+    .modal__measure-container {
+        grid-column: 2;
     }
 
     .modal__stats-container {
@@ -226,6 +239,18 @@
         border-radius: 0 0 20px 20px;
     }
 
+}
+
+/* TODO CENTRALIZAR INFO */
+
+@media(max-width: 680px) {
+    .modal__info-container {
+        display: flex;
+    }
+
+    .modal__img {
+        max-width: 400px;
+    }
 }
 
 @media(max-width: 480px) {
@@ -237,10 +262,6 @@
     .modal__img {
         width: 100%;
         max-width: 100%;
-    }
-
-    .modal__info-container {
-        margin-top: 6rem;
     }
 
     .modal__title {

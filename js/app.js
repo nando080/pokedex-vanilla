@@ -108,6 +108,8 @@ const createStatusChartBar = (attribute, value, type) => {
     return bar
 }
 
+//TODO INSERIR VALORES DAS BARRAS NO TEMPLATE
+
 const createPokemonModal = pokemon => {
     const {id, name, height, weight, type, weaknesses, stats} = pokemon
     const prevEvolution = pokemon['prev_evolution']
