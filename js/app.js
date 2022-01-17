@@ -95,7 +95,18 @@ const getTypeBadgesString = (types, section) => {
     return imgsString
 }
 
-//TODO GET STATUS BAR
+
+const createStatusChartBar = (attribute, value, type) => {
+    const barSize = Math.round((value * 100) / 180)
+    const bar = `
+    <div class="modal__stats-chart-bar-container">
+        <p class="modal__stats-chart-name">${attribute}</p>
+        <div class="modal__stats-chart-bar u-${type}-bg" style="width:${barSize}%"></div>
+    </div>
+    `
+    console.log(bar)
+    return bar
+}
 
 const createPokemonModal = pokemon => {
     const {id, name, height, weight, type, weaknesses, stats} = pokemon
@@ -116,7 +127,7 @@ const createPokemonModal = pokemon => {
                     <h3 class="modal__id-number">${formatedID}</h3>
                 </div>
                 <img src="img/pokemon-png/${formatedID}.png" alt="${name}" class="modal__img">
-                <h2 class="modal__name u-#${mainType}-text">${name}</h2>
+                <h2 class="modal__name u-${mainType}-text">${name}</h2>
                 <div class="modal__type-container">
                     ${getTypeBadgesString(type, 'type')}
                 </div>
@@ -142,30 +153,12 @@ const createPokemonModal = pokemon => {
 
                 <div class="modal__stats-chart">
                     <h2 class="modal__title">stats</h2>
-                    <div class="modal__stats-chart-bar-container">
-                        <p class="modal__stats-chart-name">hp</p>
-                        <div class="modal__stats-chart-bar u-grass-bg"></div>
-                    </div>
-                    <div class="modal__stats-chart-bar-container">
-                        <p class="modal__stats-chart-name">atk</p>
-                        <div class="modal__stats-chart-bar u-grass-bg"></div>
-                    </div>
-                    <div class="modal__stats-chart-bar-container">
-                        <p class="modal__stats-chart-name">def</p>
-                        <div class="modal__stats-chart-bar u-grass-bg"></div>
-                    </div>
-                    <div class="modal__stats-chart-bar-container">
-                        <p class="modal__stats-chart-name">spatk</p>
-                        <div class="modal__stats-chart-bar u-grass-bg"></div>
-                    </div>
-                    <div class="modal__stats-chart-bar-container">
-                        <p class="modal__stats-chart-name">spdef</p>
-                        <div class="modal__stats-chart-bar u-grass-bg"></div>
-                    </div>
-                    <div class="modal__stats-chart-bar-container">
-                        <p class="modal__stats-chart-name">speed</p>
-                        <div class="modal__stats-chart-bar u-grass-bg"></div>
-                    </div>
+                    ${createStatusChartBar('hp', stats['hp'], mainType)}
+                    ${createStatusChartBar('atk', stats['attack'], mainType)}
+                    ${createStatusChartBar('def', stats['defense'], mainType)}
+                    ${createStatusChartBar('spatk', stats['sp-atk'], mainType)}
+                    ${createStatusChartBar('spdef', stats['sp-def'], mainType)}
+                    ${createStatusChartBar('speed', stats['speed'], mainType)}
                 </div>
 
                 <div class="modal__evolution">
@@ -180,8 +173,13 @@ const createPokemonModal = pokemon => {
 
         </div>
     `
+
+    return modal
 }
 
+const insertModalIntoDOM = pokemon => {
+    document.querySelector('body').appendChild(createPokemonModal(pokemon))
+}
 
 searchButtonEl.addEventListener('click', () => {
     searchButtonEl.classList.toggle('is-active')
@@ -195,8 +193,7 @@ window.addEventListener('resize', () => {
 
 pokemonsContainerEl.addEventListener('click', event => {
     const pokeIndex = Number((event.target.dataset.id)) - 1
-    console.log(pokemons[pokeIndex])
-    createPokemonModal(pokemons[pokeIndex])
+    insertModalIntoDOM(pokemons[pokeIndex])
 })
 
 fetchPokemons()
