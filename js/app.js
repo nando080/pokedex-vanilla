@@ -97,11 +97,12 @@ const getTypeBadgesString = (types, section) => {
 
 
 const createStatusChartBar = (attribute, value, type) => {
-    const barSize = Math.round((value * 100) / 180)
+    const barSize = Math.floor((value * 100) / 180)
     const bar = `
     <div class="modal__stats-chart-bar-container">
         <p class="modal__stats-chart-name">${attribute}</p>
         <div class="modal__stats-chart-bar u-${type}-bg" style="width:${barSize}%"></div>
+        <p class="modal__stats-chart-value u-${type}-text">${value}</p>
     </div>
     `
     console.log(bar)
@@ -175,6 +176,10 @@ const createPokemonModal = pokemon => {
 
         </div>
     `
+
+    const modalCloseButton = document.createElement('div')
+    modalCloseButton.classList.add('modal__close-button')
+    modalCloseButton.innerHTML = '<img src="img/interface/close-green.svg" alt="close pokemon" class="modal__close-button-img">'
 
     return modal
 }
