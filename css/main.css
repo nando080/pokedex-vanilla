@@ -17,6 +17,10 @@
     font-size: 62.5%;
 }
 
+body.is-locked {
+    overflow: hidden;
+}
+
 .u-container {
     width: 100%;
     max-width: 1280px;

@@ -105,11 +105,32 @@ const createStatusChartBar = (attribute, value, type) => {
         <p class="modal__stats-chart-value u-${type}-text">${value}</p>
     </div>
     `
-    console.log(bar)
     return bar
 }
 
-//TODO INSERIR VALORES DAS BARRAS NO TEMPLATE
+//TODO evoluções
+
+const reduceEvolutions = evolutions => {
+    const condition = !(evolutions === null || evolutions === undefined || evolutions === '')
+    let evolutionsString = ''
+    if (condition) {
+        evolutionsString = evolutions.reduce((acc, evolution) =>
+            acc + `<img src="img/pokemon-gif/${formatPokemonName(evolution.name)}.gif" alt="${evolution.name}" class="modal-evolution-img" data-id="${evolution.num}">`, '')
+    }
+    console.log(evolutionsString)
+    return evolutionsString
+}
+
+const createEvolutionsEl = (prev, next) => {
+    let prevStrings = ''
+    let nextStrings = ''
+    prevStrings = reduceEvolutions(prev)
+    nextStrings = reduceEvolutions(next)
+    if (prevStrings === '' && nextStrings ==='') {
+        return '<p class="modal__evolution-warn">This pokemon has no evolutions.</p>'
+    }
+    return prevStrings + nextStrings
+}
 
 const createPokemonModal = pokemon => {
     const {id, name, height, weight, type, weaknesses, stats} = pokemon
@@ -124,6 +145,9 @@ const createPokemonModal = pokemon => {
 
     modal.innerHTML = `
         <div class="modal__container">
+            <div class="modal__close-button">
+                <img src="img/interface/close-btn.svg" alt="close pokemon" class="modal__close-button-img">
+            </div>
             <div class="modal__info-container">
                 <div class="modal__id">
                     <img src="img/interface/pokeball-gray.svg" alt="id" class="modal__id-icon">
@@ -167,9 +191,7 @@ const createPokemonModal = pokemon => {
                 <div class="modal__evolution">
                     <h2 class="modal__title">evolutions</h2>
                     <div class="modal__evolution-container">
-                        <img src="img/pokemon-gif/bulbasaur.gif" alt="bulbassaur" class="modal-evolution-img">
-                        <img src="img/pokemon-gif/ivysaur.gif" alt="ivysaur" class="modal-evolution-img">
-                        <img src="img/pokemon-gif/venusaur.gif" alt="venusaur" class="modal-evolution-img">
+                        ${createEvolutionsEl(prevEvolution, nextEvolution)}
                     </div>
                 </div>
             </div>
@@ -188,6 +210,10 @@ const insertModalIntoDOM = pokemon => {
     document.querySelector('body').appendChild(createPokemonModal(pokemon))
 }
 
+const lockBody = () => {
+    document.querySelector('body').classList.add('is-locked')
+}
+
 searchButtonEl.addEventListener('click', () => {
     searchButtonEl.classList.toggle('is-active')
     setFilterActivation()
@@ -201,6 +227,7 @@ window.addEventListener('resize', () => {
 pokemonsContainerEl.addEventListener('click', event => {
     const pokeIndex = Number((event.target.dataset.id)) - 1
     insertModalIntoDOM(pokemons[pokeIndex])
+    lockBody()
 })
 
 fetchPokemons()
