@@ -38,7 +38,7 @@ const getFormatedID = value => {
 const formatPokemonName = name => name.replace(/♀/g, '_f').replace(/♂/g, '_m').replace(/['.\s]/g, '').toLowerCase()
 
 
-const createPokemonElement = ({id, name, type}) => {
+const createPokemonElement = ({ id, name, type }) => {
     const pokeDiv = document.createElement('div')
     pokeDiv.classList.add('pokemon__item')
     pokeDiv.classList.add(`u-${type[0]}-bg`)
@@ -117,7 +117,6 @@ const reduceEvolutions = evolutions => {
         evolutionsString = evolutions.reduce((acc, evolution) =>
             acc + `<img src="img/pokemon-gif/${formatPokemonName(evolution.name)}.gif" alt="${evolution.name}" class="modal-evolution-img" data-id="${evolution.num}">`, '')
     }
-    console.log(evolutionsString)
     return evolutionsString
 }
 
@@ -126,14 +125,14 @@ const createEvolutionsEl = (prev, next) => {
     let nextStrings = ''
     prevStrings = reduceEvolutions(prev)
     nextStrings = reduceEvolutions(next)
-    if (prevStrings === '' && nextStrings ==='') {
+    if (prevStrings === '' && nextStrings === '') {
         return '<p class="modal__evolution-warn">This pokemon has no evolutions.</p>'
     }
     return prevStrings + nextStrings
 }
 
 const createPokemonModal = pokemon => {
-    const {id, name, height, weight, type, weaknesses, stats} = pokemon
+    const { id, name, height, weight, type, weaknesses, stats } = pokemon
     const prevEvolution = pokemon['prev_evolution']
     const nextEvolution = pokemon['next_evolution']
     const formatedID = getFormatedID(id)
@@ -199,19 +198,32 @@ const createPokemonModal = pokemon => {
         </div>
     `
 
-    const modalCloseButton = document.createElement('div')
-    modalCloseButton.classList.add('modal__close-button')
-    modalCloseButton.innerHTML = '<img src="img/interface/close-green.svg" alt="close pokemon" class="modal__close-button-img">'
 
     return modal
 }
 
-const insertModalIntoDOM = pokemon => {
-    document.querySelector('body').appendChild(createPokemonModal(pokemon))
-}
-
 const lockBody = () => {
     document.querySelector('body').classList.add('is-locked')
+}
+
+const unlockBody = () => {
+    document.querySelector('body').classList.remove('is-locked')
+}
+
+const insertModalIntoDOM = pokemon => {
+    document.querySelector('body').appendChild(createPokemonModal(pokemon))
+    lockBody()
+}
+
+const removeModalDOM = () => {
+    const modalTarget = document.querySelector('.modal')
+    document.querySelector('body').removeChild(modalTarget)
+    unlockBody()
+}
+
+const setModalCloseButtonListener = () => {
+    const modalCloseButton = document.querySelector('.modal__close-button')
+    modalCloseButton.addEventListener('click', removeModalDOM)
 }
 
 searchButtonEl.addEventListener('click', () => {
@@ -225,9 +237,12 @@ window.addEventListener('resize', () => {
 })
 
 pokemonsContainerEl.addEventListener('click', event => {
-    const pokeIndex = Number((event.target.dataset.id)) - 1
-    insertModalIntoDOM(pokemons[pokeIndex])
-    lockBody()
+    const condition = event.target.dataset.id !== '' && event.target.dataset.id !== undefined && event.target.dataset.id !== null
+    if (condition) {
+        const pokeIndex = Number((event.target.dataset.id)) - 1
+        insertModalIntoDOM(pokemons[pokeIndex])
+        setModalCloseButtonListener()
+    }
 })
 
 fetchPokemons()
