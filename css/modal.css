@@ -1,3 +1,13 @@
+@keyframes appear {
+    to {opacity: 0;}
+    from {opacity: 1;}
+}
+
+@keyframes scrollDown {
+    to {transform: translateY(-150%);}
+    from {transform: translateY(0);}
+}
+
 .modal {
     width: 100%;
     height: 100%;
@@ -9,9 +19,18 @@
     bottom: 0;
     z-index: 1000;
     display: flex;
+    opacity: 0;
     justify-content: center;
     align-items: center;
     padding: 1.5rem;
+    
+}
+
+.modal.is-active {
+    animation-name: appear;
+    animation-duration: .3s;
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
 }
 
 .modal__container {
@@ -26,6 +45,12 @@
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+    transform: translateY(-150%);
+    animation-name: scrollDown;
+    animation-delay: .4s;
+    animation-duration: .2s;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: forwards;
 }
 
 .modal__close-button {

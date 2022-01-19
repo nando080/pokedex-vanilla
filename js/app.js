@@ -108,8 +108,6 @@ const createStatusChartBar = (attribute, value, type) => {
     return bar
 }
 
-//TODO evoluções
-
 const reduceEvolutions = evolutions => {
     const condition = !(evolutions === null || evolutions === undefined || evolutions === '')
     let evolutionsString = ''
@@ -210,8 +208,13 @@ const unlockBody = () => {
     document.querySelector('body').classList.remove('is-locked')
 }
 
+//TODO fazer o modal ficar ativo e depois fazer ele animar para desativar
+
 const insertModalIntoDOM = pokemon => {
-    document.querySelector('body').appendChild(createPokemonModal(pokemon))
+    const body = document.querySelector('body')
+    body.appendChild(createPokemonModal(pokemon))
+    const pokeModal = body.querySelector('.modal')
+    console.log(pokeModal);
     lockBody()
 }
 
