@@ -208,19 +208,30 @@ const unlockBody = () => {
     document.querySelector('body').classList.remove('is-locked')
 }
 
-//TODO fazer o modal ficar ativo e depois fazer ele animar para desativar
-
 const insertModalIntoDOM = pokemon => {
     const body = document.querySelector('body')
     body.appendChild(createPokemonModal(pokemon))
     const pokeModal = body.querySelector('.modal')
-    console.log(pokeModal);
+    const pokeModalContainer = pokeModal.querySelector('.modal__container')
+    pokeModalContainer.classList.add('open')
+    pokeModal.classList.add('open')
+    const interval = setTimeout(() => {
+        pokeModalContainer.classList.remove('open')
+        pokeModal.classList.remove('open')
+    }, 700)
     lockBody()
 }
 
 const removeModalDOM = () => {
-    const modalTarget = document.querySelector('.modal')
-    document.querySelector('body').removeChild(modalTarget)
+    const pokeModal = document.querySelector('.modal')
+    const pokeModalContainer = pokeModal.querySelector('.modal__container')
+    pokeModal.classList.remove('open')
+    pokeModal.classList.add('close')
+    pokeModalContainer.classList.remove('open')
+    pokeModalContainer.classList.add('close')
+    const interval = setInterval(() => {
+        document.querySelector('body').removeChild(pokeModal)
+    }, 700)
     unlockBody()
 }
 
