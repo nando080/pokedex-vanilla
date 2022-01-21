@@ -36,7 +36,6 @@ const getFormatedID = value => {
 }
 
 const formatPokemonName = name => {
-    console.log(name)
     const formatedName = name
         .replace(/♀/g, '_f')
         .replace(/♂/g, '_m')
@@ -126,7 +125,6 @@ const reduceEvolutions = evolutions => {
         evolutionsString = evolutions.reduce((acc, evolution) =>
             acc + `<img src="img/pokemon-gif/${formatPokemonName(evolution.name)}.gif" alt="${evolution.name}" class="modal__evolution-img" data-id="${evolution.num}">`, '')
     }
-    console.log(evolutionsString)
     return evolutionsString
 }
 
