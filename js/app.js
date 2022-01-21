@@ -2,6 +2,8 @@ const searchButtonEl = document.querySelector('[data-js="search-button"]')
 const filterSectionEl = document.querySelector('[data-js="filter"]')
 const filterContainerEl = filterSectionEl.querySelector('.filter__container')
 const pokemonsContainerEl = document.querySelector('.pokemon')
+const filterInputEl = document.querySelector('.filter__input')
+console.log(filterInputEl);
 
 const pokemons = []
 
