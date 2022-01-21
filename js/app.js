@@ -35,7 +35,18 @@ const getFormatedID = value => {
     return value
 }
 
-const formatPokemonName = name => name.replace(/♀/g, '_f').replace(/♂/g, '_m').replace(/['.\s]/g, '').toLowerCase()
+const formatPokemonName = name => {
+    console.log(name)
+    const formatedName = name
+        .replace(/♀/g, '_f')
+        .replace(/♂/g, '_m')
+        .replace(/['.\s]/g, '')
+        .replace(/\(female\)/gi, '_f')
+        .replace(/\(male\)/gi, '_m')
+        .toLowerCase()
+    return formatedName
+}
+
 
 
 const createPokemonElement = ({ id, name, type }) => {
@@ -113,8 +124,9 @@ const reduceEvolutions = evolutions => {
     let evolutionsString = ''
     if (condition) {
         evolutionsString = evolutions.reduce((acc, evolution) =>
-            acc + `<img src="img/pokemon-gif/${formatPokemonName(evolution.name)}.gif" alt="${evolution.name}" class="modal-evolution-img" data-id="${evolution.num}">`, '')
+            acc + `<img src="img/pokemon-gif/${formatPokemonName(evolution.name)}.gif" alt="${evolution.name}" class="modal__evolution-img" data-id="${evolution.num}">`, '')
     }
+    console.log(evolutionsString)
     return evolutionsString
 }
 
@@ -218,6 +230,7 @@ const insertModalIntoDOM = pokemon => {
     const interval = setTimeout(() => {
         pokeModalContainer.classList.remove('open')
         pokeModal.classList.remove('open')
+        clearInterval(interval)
     }, 700)
     lockBody()
 }
@@ -231,13 +244,33 @@ const removeModalDOM = () => {
     pokeModalContainer.classList.add('close')
     const interval = setInterval(() => {
         document.querySelector('body').removeChild(pokeModal)
+        clearInterval(interval)
     }, 700)
     unlockBody()
+}
+
+const handleEvolutionClick = event => {
+    const pokeIndex = event.target.dataset.id
+    const condition = !(pokeIndex === '' || pokeIndex === null || pokeIndex === undefined)
+    if (condition) {
+        const pokeIndexNumber = Number(pokeIndex) - 1
+        removeModalDOM()
+        const interval = setTimeout(() => {
+            insertModalIntoDOM(pokemons[pokeIndexNumber])
+            setModalCloseButtonListener()
+            setEvolutionsListener()
+        }, 700)
+    }
 }
 
 const setModalCloseButtonListener = () => {
     const modalCloseButton = document.querySelector('.modal__close-button')
     modalCloseButton.addEventListener('click', removeModalDOM)
+}
+
+const setEvolutionsListener = () => {
+    const evolutionsContainer = document.querySelector('.modal__evolution')
+    evolutionsContainer.addEventListener('click', handleEvolutionClick)
 }
 
 searchButtonEl.addEventListener('click', () => {
@@ -256,6 +289,7 @@ pokemonsContainerEl.addEventListener('click', event => {
         const pokeIndex = Number((event.target.dataset.id)) - 1
         insertModalIntoDOM(pokemons[pokeIndex])
         setModalCloseButtonListener()
+        setEvolutionsListener()
     }
 })
 

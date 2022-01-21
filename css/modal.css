@@ -215,6 +215,10 @@
     align-items: flex-end;
 }
 
+.modal__evolution-img {
+    cursor: pointer;
+}
+
 .modal__evolution-warn {
     color: #bababa;
 }
