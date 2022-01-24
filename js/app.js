@@ -2,12 +2,13 @@ const searchButtonEl = document.querySelector('[data-js="search-button"]')
 const filterSectionEl = document.querySelector('[data-js="filter"]')
 const filterContainerEl = filterSectionEl.querySelector('.filter__container')
 const pokemonsContainerEl = document.querySelector('.pokemon')
+const filterButtonsContainerEL = document.querySelector('.filter__button-container')
 const filterInputEl = document.querySelector('.filter__input')
-console.log(filterInputEl);
 
 const pokemons = []
 
 let isFilterActive = false
+let isFiltered = false
 
 const getFilterContanerHeight = () => filterContainerEl.getBoundingClientRect().height
 
@@ -21,6 +22,9 @@ const setFilterActivation = () => {
         filterSectionEl.style.height = '0px'
         filterContainerEl.classList.remove('is-active')
         isFilterActive = false
+        if (pokemons.length > 0 && isFiltered) {
+            insertPokemonsIntoDOM(createAllPokemons(pokemons))
+        }
     }
 }
 
@@ -72,6 +76,7 @@ const createAllPokemons = pokemonList => {
 }
 
 const insertPokemonsIntoDOM = pokemonElements => {
+    pokemonsContainerEl.innerHTML = ''
     pokemonElements.forEach(pokemonEl => {
         pokemonsContainerEl.appendChild(pokemonEl)
     })
@@ -136,7 +141,7 @@ const createEvolutionsEl = (prev, next) => {
     prevStrings = reduceEvolutions(prev)
     nextStrings = reduceEvolutions(next)
     if (prevStrings === '' && nextStrings === '') {
-        return '<p class="modal__evolution-warn">This pokemon has no evolutions.</p>'
+        return '<p class="modal__evolution-warn">This pokemon has no evolutions in gen 1.</p>'
     }
     return prevStrings + nextStrings
 }
@@ -273,6 +278,34 @@ const setEvolutionsListener = () => {
     evolutionsContainer.addEventListener('click', handleEvolutionClick)
 }
 
+const filterPokemonsByType = event => {
+    const type = event.target.dataset.type
+    const condition = type !== undefined && type !== '' && type !== null
+    if (condition) {
+        const filteredPokemons = pokemons.filter(pokemon => {
+            if (pokemon.type[0] === type) {
+                return true
+            } else {
+                return false
+            }
+        })
+        insertPokemonsIntoDOM(createAllPokemons(filteredPokemons))
+        isFiltered = true
+    }
+}
+
+//TODO CONTINUAR IMPLEMENTAÇÃO
+const filterPokemonsByName = value => {
+    const filteredPokemons = pokemons.filter(pokemon => {
+        if (pokemon.name.includes(value)) {
+            return true
+        } else {
+            return false
+        }
+    })
+    console.log(filteredPokemons)
+}
+
 searchButtonEl.addEventListener('click', () => {
     searchButtonEl.classList.toggle('is-active')
     setFilterActivation()
@@ -291,6 +324,13 @@ pokemonsContainerEl.addEventListener('click', event => {
         setModalCloseButtonListener()
         setEvolutionsListener()
     }
+})
+
+filterButtonsContainerEL.addEventListener('click', filterPokemonsByType)
+
+filterInputEl.addEventListener('input', () => {
+    const value = filterInputEl.value
+    filterPokemonsByName(value)
 })
 
 fetchPokemons()
