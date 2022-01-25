@@ -24,6 +24,7 @@ const setFilterActivation = () => {
         isFilterActive = false
         if (pokemons.length > 0 && isFiltered) {
             insertPokemonsIntoDOM(createAllPokemons(pokemons))
+            filterInputEl.value = ''
         }
     }
 }
@@ -283,7 +284,7 @@ const filterPokemonsByType = event => {
     const condition = type !== undefined && type !== '' && type !== null
     if (condition) {
         const filteredPokemons = pokemons.filter(pokemon => {
-            if (pokemon.type[0] === type) {
+            if (pokemon.type[0] === type || pokemon.type[1] === type) {
                 return true
             } else {
                 return false
@@ -294,16 +295,16 @@ const filterPokemonsByType = event => {
     }
 }
 
-//TODO CONTINUAR IMPLEMENTAÇÃO
 const filterPokemonsByName = value => {
     const filteredPokemons = pokemons.filter(pokemon => {
-        if (pokemon.name.includes(value)) {
+        if (pokemon.name.trim().toLowerCase().includes(value.trim().toLowerCase())) {
             return true
         } else {
             return false
         }
     })
-    console.log(filteredPokemons)
+    insertPokemonsIntoDOM(createAllPokemons(filteredPokemons))
+    isFiltered = true
 }
 
 searchButtonEl.addEventListener('click', () => {
